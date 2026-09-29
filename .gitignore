@@ -1,0 +1,4 @@
+/log/
+/.ruby-lsp/
+/pkg/
+*.gem
