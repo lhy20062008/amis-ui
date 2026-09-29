@@ -36,4 +36,27 @@ class AmisFilterTest < Minitest::Test
       amis_select_filter(name: "admin_role_ids", placeholder: "Roles", options: [], multiple: true)
     )
   end
+
+  def test_builds_a_date_range_filter
+    assert_equal(
+      {
+        name: "created_at_between", type: "input-date-range", label: false,
+        startPlaceholder: "Created At", endPlaceholder: "Created At",
+        valueFormat: "YYYYMMDD", displayFormat: "DD MMM YYYY", delimiter: "to"
+      },
+      amis_date_range_filter(name: "created_at_between", placeholder: "Created At")
+    )
+  end
+
+  def test_allows_date_range_placeholders_to_be_overridden
+    schema = amis_date_range_filter(
+      name: "created_at_between",
+      placeholder: "Created At",
+      startPlaceholder: "From",
+      endPlaceholder: "Until"
+    )
+
+    assert_equal "From", schema[:startPlaceholder]
+    assert_equal "Until", schema[:endPlaceholder]
+  end
 end

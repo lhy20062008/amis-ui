@@ -30,6 +30,19 @@ module AmisUi
           extractValue: attributes.fetch(:extractValue, true)
         )
       end
+
+      def amis_date_range_filter(name:, placeholder:, **options)
+        {
+          name: name,
+          type: "input-date-range",
+          label: false,
+          startPlaceholder: options.fetch(:startPlaceholder, placeholder),
+          endPlaceholder: options.fetch(:endPlaceholder, placeholder),
+          valueFormat: "YYYYMMDD",
+          displayFormat: "DD MMM YYYY",
+          delimiter: "to"
+        }.merge(options)
+      end
     end
   end
 end
