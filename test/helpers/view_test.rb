@@ -47,7 +47,7 @@ class AmisViewTest < Minitest::Test
         alignItems: "center",
         items: [
           { type: "tpl", tpl: "Basic Information" },
-          { type: "flex", justify: "flex-end", items: actions }
+          { type: "flex", justify: "flex-end", style: { gap: "8px" }, items: actions }
         ]
       },
       amis_panel_header(title: "Basic Information", actions: actions)

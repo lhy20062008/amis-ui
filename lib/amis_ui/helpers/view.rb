@@ -26,7 +26,7 @@ module AmisUi
           alignItems: "center",
           items: [
             { type: "tpl", tpl: title },
-            { type: "flex", justify: "flex-end", items: actions }
+            { type: "flex", justify: "flex-end", style: { gap: "8px" }, items: actions }
           ]
         }
       end
